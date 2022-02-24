@@ -1,151 +1,96 @@
-* {
-   box-sizing: border-box;
+*{
    margin: 0;
    padding: 0;
-   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-     'Lucida Sans', Arial, sans-serif;
- }
- 
- body {
-   background: linear-gradient(
-     120deg,
-     rgb(39, 189, 209) 0%,
-     rgb(100, 255, 165) 100%
-   );
- }
- .todo-app {
+}
+
+.container{
+   background: rgb(197, 243, 252) ;
+   width: 100%;
+   min-height: 100vh;
    display: flex;
-   flex-direction: column;
-   justify-content: start;
-   width: 520px;
-   min-height: 600px;
-   background: #161a2b;
-   text-align: center;
-   margin: 128px auto;
+   justify-content: center;
+   align-items: center;
+}
+
+.app-wrapper{
+   background-color: #fcfbf8;
+   min-width: 450px;
+   min-height: 650px;
+   padding: 30px;
+   box-sizing: border-box;
    border-radius: 10px;
-   padding-bottom: 32px;
- }
- 
- h1 {
-   margin: 32px 0;
-   color: #fff;
-   font-size: 24px;
+   box-shadow: 3px 6px 15px black;
+   margin-bottom: 10px;
+   overflow-inline: inherit;
+};
+
+.header h1 {
+   margin: 30px 0;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    text-align: center;
- }
- 
- .complete {
-   text-decoration: line-through;
-   opacity: 0.4;
- }
- 
- .todo-form {
-   margin-bottom: 32px;
-   display: inline-block;
-  text-align: center;   
- }
- 
- .todo-input {
-   padding: 14px 32px 14px 16px;
-   border-radius: 4px 0 0 4px;
-   border: 2px solid #5d0cff;
-   outline: none;
-   width: 320px;
-   background: transparent;
-   color: #fff;
- }
- 
- .todo-input::placeholder {
-   color: #e2e2e2;
- }
- 
- .todo-button {
-   padding: 16px;
+   color: aqua;
+}
+.button-add{
+   width: 50px;
+   padding: 10px 10px;
+   height: 50px;
+   font-size: 15px;
+   border-radius: 8px;
    border: none;
-   border-radius: 0 4px 4px 0;
+   background-color: #463434;
    cursor: pointer;
+  box-shadow: 1px 1px 2px #000000;
+  color: #fcfbf8;
+}
+
+.todo-input{
    outline: none;
-   background: linear-gradient(
-     90deg,
-     rgba(93, 12, 255, 1) 0%,
-     rgba(155, 0, 250, 1) 100%
-   );
-   color: #fff;
-   text-transform: capitalize;
- }
- 
- .todo-input.edit {
-   border: 2px solid #149fff;
- }
- 
- .todo-button.edit {
-   background: linear-gradient(
-     90deg,
-     rgba(20, 159, 255, 1) 0%,
-     rgba(17, 122, 255, 1) 100%
-   );
-   padding: 16px 22px;
- }
- 
- .todo-container {
+   width: 260px;
+   padding: 10px;
+   margin-right: 20px;
+   margin-top: 12px;
+   font-size: 20px;
+   color: #332020;
+   background-color: #f4f4f8;
+   border-radius: 10px;
+   box-shadow: 1px 1px 2px #000000;
+   border: none;
+}
+
+.todo-list{
+   padding: 0;
+}
+
+.list{
    display: flex;
-   flex-direction: row;
-   position: relative;
- }
- 
- .todo-row {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   margin: 4px auto;
-   color: #fff;
-   background: linear-gradient(
-     90deg,
-     rgba(255, 118, 20, 1) 0%,
-     rgba(255, 84, 17, 1) 100%
-   );
- 
-   padding: 16px;
-   border-radius: 5px;
-   width: 90%;
- }
- 
- .todo-row:nth-child(4n + 1) {
-   background: linear-gradient(
-     90deg,
-     rgba(93, 12, 255, 1) 0%,
-     rgba(155, 0, 250, 1) 100%
-   );
- }
- 
- .todo-row:nth-child(4n + 2) {
-   background: linear-gradient(
-     90deg,
-     rgba(255, 12, 241, 1) 0%,
-     rgba(250, 0, 135, 1) 100%
-   );
- }
- 
- .todo-row:nth-child(4n + 3) {
-   background: linear-gradient(
-     90deg,
-     rgba(20, 159, 255, 1) 0%,
-     rgba(17, 122, 255, 1) 100%
-   );
- }
- 
- .icons {
-   display: flex;
-   align-items: center;
-   font-size: 24px;
+   margin: 20px 0;
+   border: none;
+   border-radius: 10px;
+   padding: 10px;
+   max-height: 30px;
+   background-color: #f4f4f8;
+   box-shadow: 1px 1px 2px #000000;
+   color: #000000;
+   font-size: 15px ;
+   font-weight: bold;
+}
+
+.complete,
+.edit,
+.delete{
+   border: none;
+   outline: none;
    cursor: pointer;
- }
- 
- .delete-icon {
-   margin-right: 5px;
-   color: #fff;
- }
- 
- .edit-icon {
-   color: #fff;
- }
- 
+   background-color: transparent;
+   font-size: 28px;
+   border-radius: 50%;
+   padding: 5px;
+}
+.completed{
+   text-decoration: line-through;
+   font-style: italic;
+   font-weight: lighter ;
+   opacity: 0.6;
+}
+
+

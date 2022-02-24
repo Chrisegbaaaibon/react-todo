@@ -1,57 +1,54 @@
-import React, { useState } from 'react';
-import TodoForm from './TodoForm';
-import Todo from './Todo';
+import React from 'react';
+import '../App.css'
+const TodoList = ({ todos, setTodos, setEditTodo }) => {
+   const handleComplete = ({todo})=>{
+      setTodos(
+         todos.map((item)=>{
+            if(item.id === todo.id){
+               return {...item, completed: !item.completed}
+            }
+            return item;
+         })
+      )
+   }
+   const handleDelete = ({id}) =>{
+      setTodos(todos.filter((todo)=> todo.id !== id))
+   }
+      const handleEdit = ({id})=>{
+      const findTodo = todos.find((todo)=> todo.id === id);
+      setEditTodo(findTodo);
+   }
 
-function TodoList() {
-  const [todos, setTodos] = useState([]);
-
-  const addTodo = todo => {
-    if (!todo.text || /^\s*$/.test(todo.text)) {
-      return;
-    }
-
-    const newTodos = [todo, ...todos];
-
-    setTodos(newTodos);
-    console.log(...todos);
-  };
-
-  const updateTodo = (todoId, newValue) => {
-    if (!newValue.text || /^\s*$/.test(newValue.text)) {
-      return;
-    }
-
-    setTodos(prev => prev.map(item => (item.id === todoId ? newValue : item)));
-  };
-
-  const removeTodo = id => {
-    const removedArr = [...todos].filter(todo => todo.id !== id);
-
-    setTodos(removedArr);
-  };
-
-  const completeTodo = id => {
-    let updatedTodos = todos.map(todo => {
-      if (todo.id === id) {
-        todo.isComplete = !todo.isComplete;
-      }
-      return todo;
-    });
-    setTodos(updatedTodos);
-  };
 
   return (
-    <>
-      <h1>What's the Plan for Today?</h1>
-      <TodoForm onSubmit={addTodo} />
-      <Todo
-        todos={todos}
-        completeTodo={completeTodo}
-        removeTodo={removeTodo}
-        updateTodo={updateTodo}
-      />
-    </>
-  );
+    <div>
+       {
+          todos.map((todo)=>(
+             <li className='todo-list' key={todo.id}  >
+                <input 
+                  type='text' 
+                   value={todo.title} 
+                   className={`list ${todo.completed ? "completed" : ""}`} 
+                   onChange={(event)=> event.preventDefault()} 
+                   />
+                  <div>
+                     <button className={'complete'} onClick={()=> handleComplete(todo)}>
+                      <i className={'fa fa-check-circle'}></i>
+                     </button>
+                     <button className={'edit'} onClick={()=> handleEdit(todo)}>
+                      <i className={'fa fa-edit'}></i>
+                     </button>
+                     <button className={'delete'} onClick={()=>handleDelete(todo)}>
+                      <i className={'fa fa-trash'}></i>
+                     </button>
+                  </div>
+                  <hr />
+             </li>
+          )
+          )
+       }
+    </div>
+  )
 }
 
 export default TodoList;
