@@ -39,19 +39,7 @@ const headStyle = {
    fontSize: '18px'
 }
 
-const formStyle = {
-   outline: 'none',
-   width: '260px',
-   padding: '10px',
-   marginRight: '20px',
-   marginTop: '12px',
-   fontSize: '20px',
-   color: '#332020',
-   backgroundColor: '#f4f4f8',
-   borderRadius: '10px',
-   boxShadow: '1px 1px 2px #000000',
-   border: 'none'
-}
+
 
   return (
    <div>
